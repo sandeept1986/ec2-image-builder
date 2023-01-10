@@ -3,10 +3,7 @@ variable "aws_region" {
   description = "The AWS region."
 }
 
-variable "aws_cli_profile" {
-  type        = string
-  description = "The AWS CLI profile name."
-}
+
 
 variable "ec2_iam_role_name" {
   type        = string
