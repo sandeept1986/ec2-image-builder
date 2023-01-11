@@ -1,6 +1,6 @@
 # Create the EC2 IAM role to use for the image
 resource "aws_iam_role_policy" "ec2_iam_policy" {
-  name = "lambda_policy"
+  name = "ec2-_iam_policy"
   role = aws_iam_role.ec2_iam_role.id
 
   # Terraform's "jsonencode" function converts a
@@ -9,7 +9,7 @@ resource "aws_iam_role_policy" "ec2_iam_policy" {
 
 }
 resource "aws_iam_role" "ec2_iam_role" {
-  ec2_iam_role_name = var.ec2_iam_role_name
+  name = var.ec2_iam_role_name
 
   assume_role_policy = file("files/assumption-policy.json")
   
