@@ -1,11 +1,9 @@
 # Create the EC2 IAM role to use for the image
-module "image_builder_role" {
-  source = "git@github.com:sandeept1986/tf-module-iam-ec2-role.git?ref=master"
+resource "aws_iam_role" "ec2_iam_role" {
+  ec2_iam_role_name = var.ec2_iam_role_name
 
-  ec2_iam_role_name  = var.ec2_iam_role_name
-  policy_description = "IAM ec2 instance profile for the Image Builder instances."
   assume_role_policy = file("files/assumption-policy.json")
-  policy             = data.aws_iam_policy_document.image_builder.json
+  policy = data.aws_iam_policy_document.image_builder.json
 }
 
 data "aws_region" "current" {}
