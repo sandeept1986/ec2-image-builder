@@ -10,6 +10,12 @@ variable "ec2_iam_role_name" {
   description = "The EC2's IAM role name."
 }
 
+variable "ec2_iam_policy" {
+  type        = string
+  description = "The EC2's IAM role name."
+  default = "ec2_iam_policy"
+}
+
 variable "aws_s3_log_bucket" {
   type        = string
   description = "The S3 bucket name to send logs to."
